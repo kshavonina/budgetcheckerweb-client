@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import { Button } from 'react-bootstrap';
+import welcome from './welcome.jpg';
 import './App.css';
 
 class App extends Component {
@@ -7,18 +8,16 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
+          <img src={welcome} className="App-logo" alt="Welcome"/>
+            <span>
+            <Button className="Button" type="submit">
+                Sign In
+            </Button>
+            <Button className="Button" type="submit">
+                Sign Up
+            </Button>
+            </span>
+
         </header>
       </div>
     );
