@@ -4,6 +4,11 @@ import welcome from './welcome.jpg';
 import './App.css';
 
 class App extends Component {
+
+    openSignUpForm() {
+        alert("Sign Up button has been pressed!");
+    }
+
   render() {
     return (
       <div className="App">
@@ -13,7 +18,7 @@ class App extends Component {
             <Button className="Button" type="submit">
                 Sign In
             </Button>
-            <Button className="Button" type="submit">
+            <Button onClick={this.openSignUpForm} className="Button" type="submit">
                 Sign Up
             </Button>
             </span>
