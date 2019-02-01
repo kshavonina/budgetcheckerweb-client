@@ -9,19 +9,32 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            visible : false
+            visibleSignUp : false,
+            visibleSignIn : false
         }
     }
 
-    openModal() {
+    openSignUpModal() {
         this.setState({
-            visible : true
+            visibleSignUp : true
         });
     }
 
-    closeModal() {
+    closeSignUpModal() {
         this.setState({
-            visible : false
+            visibleSignUp : false
+        });
+    }
+
+    openSignInModal() {
+        this.setState({
+            visibleSignIn : true
+        });
+    }
+
+    closeSignInModal() {
+        this.setState({
+            visibleSignIn : false
         });
     }
 
@@ -31,24 +44,37 @@ class App extends Component {
         <header className="App-header">
           <img src={welcome} className="App-logo" alt="Welcome"/>
             <span>
-            <Button className="Button" type="submit">
+            <Button onClick={this.openSignInModal.bind(this)} className="Button" type="submit">
                 Sign In
             </Button>
-            <Button onClick={this.openModal.bind(this)} className="Button" type="submit">
+            <Button onClick={this.openSignUpModal.bind(this)} className="Button" type="submit">
                 Sign Up
             </Button>
             </span>
 
             <Modal
-                visible={this.state.visible}
+                visible={this.state.visibleSignIn}
                 width="400"
                 height="300"
-                onClickAway={() => this.closeModal.bind(this)}
+                onClickAway={() => this.closeSignInModal().bind(this)}
             >
                 <div className="Popup">
                     <h1>Title</h1>
                     <p>Some Contents</p>
-                    <a href="javascript:void(0);" onClick={() => this.closeModal()}>Close</a>
+                    <a href="javascript:void(0);" onClick={() => this.closeSignInModal()}>Close</a>
+                </div>
+            </Modal>
+
+            <Modal
+                visible={this.state.visibleSignUp}
+                width="400"
+                height="300"
+                onClickAway={() => this.closeSignUpModal.bind(this)}
+            >
+                <div className="Popup">
+                    <h1>Title</h1>
+                    <p>Some Contents</p>
+                    <a href="javascript:void(0);" onClick={() => this.closeSignUpModal()}>Close</a>
                 </div>
             </Modal>
 
