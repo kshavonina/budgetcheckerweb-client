@@ -4,6 +4,7 @@ import welcome from './welcome.jpg';
 import Modal from 'react-awesome-modal';
 import './App.css';
 import SignIn from "./signin/SignIn";
+import SignUp from "./signup/SignUp";
 
 class App extends Component {
 
@@ -81,28 +82,7 @@ class App extends Component {
             >
               <div className="Popup">
                 <p>Some Contents</p>
-
-                <form method="post" onSubmit={this.signUp}>
-                  <div>
-                    <input type="text" placeholder="Name"/>
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Surname"/>
-                  </div>
-                  <div>
-                    <input type="text" placeholder="E-mail" required/>
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Password" required/>
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Money amount"/>
-                  </div>
-                  <div>
-                    <input type="submit" value="Sign Up"/>
-                  </div>
-                </form>
-
+                <SignUp/>
                 <div styles="margin-top: 500px;">
                   <a href="javascript:void(0);" onClick={() => this.closeSignUpModal()}>Close</a>
                 </div>
