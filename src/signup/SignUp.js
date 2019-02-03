@@ -9,7 +9,10 @@ class SignUp extends Component {
       password: '',
       name: '',
       surname: '',
-      moneyAmount: ''
+      moneyAmount: '',
+      error : {
+        message: 'gwregwreg'
+      }
     }
   }
 
@@ -49,6 +52,7 @@ class SignUp extends Component {
         <div>
           <input type="submit" value="Sign Up" onClick={() => this.signUp()}/>
         </div>
+        <div>{this.state.error.message}</div>
       </form>
     );
   }
