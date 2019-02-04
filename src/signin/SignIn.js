@@ -11,12 +11,16 @@ class SignIn extends Component {
   }
 
   signIn() {
-    alert("Sign In button has pressed!");
+    fetch('http://localhost:8080/budgetcheckerweb/users/test', {
+      method: 'POST',
+      mode: 'cors',
+      body: JSON.stringify(this.state)
+    }).then(res => console.log(res));
   }
 
   render() {
     return(
-      <div className="SignIn">
+      <form className="SignIn">
         <h2>Sign In</h2>
         <input
           className="input"
@@ -30,14 +34,16 @@ class SignIn extends Component {
           placeholder="password"
           onChange={event => this.setState({password: event.target.value})}
         />
-        <button
-          className="button"
-          type="button"
-          onClick={() => this.signIn()}
-        >
-          Sign In
+        <div className="form-group">
+          <button
+            className="button"
+            type="button"
+            onClick={() => this.signIn()}
+          >
+            Sign In
         </button>
-      </div>
+        </div>
+      </form>
     );
   }
 }
