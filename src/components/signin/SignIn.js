@@ -1,16 +1,20 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 
 class SignIn extends Component {
 
+  state = {
+    grant_type: 'password',
+    username: '',
+    password: '',
+    client_id: 'trusted-client',
+    client_secret: 'secret'
+  };
+
   constructor(props) {
     super(props);
-    this.state = {
-      grant_type: 'password',
-      username: '',
-      password: '',
-      client_id: 'trusted-client',
-      client_secret: 'secret'
-    }
+    this.signIn = this.signIn.bind(this);
   }
 
   signIn() {
@@ -47,6 +51,7 @@ class SignIn extends Component {
           });
         }
       )
+      .then(this.props.history.push("/profile"))
       .catch(function(err) {
         console.log('Fetch Error :-S', err);
       });
@@ -82,4 +87,8 @@ class SignIn extends Component {
   }
 }
 
-export default SignIn;
+SignIn.propTypes = {
+
+};
+
+export default withRouter(SignIn);

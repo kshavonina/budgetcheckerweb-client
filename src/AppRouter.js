@@ -9,8 +9,8 @@ export default function AppRouter() {
   return (
     <Router>
       <Switch>
-        <Route path={"/profile"} component={MainUserPage}/>
-        <Route path={"/"} component={App}/>
+        <Route path={"/"} exact component={App}/>
+        <Route path={"/profile"} exact component={MainUserPage}/>
       </Switch>
     </Router>
   );
